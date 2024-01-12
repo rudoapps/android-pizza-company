@@ -1,8 +1,8 @@
 package com.example.pizzacompany._client
 
-import com.example.pizzacompany.entities.Order
+import com.example.pizzacompany._entities.Order
 
 interface ClientInterface {
-    fun pay(): Float
+    fun pay(): Double
     fun order(): Order
 }

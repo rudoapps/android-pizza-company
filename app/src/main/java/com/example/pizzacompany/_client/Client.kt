@@ -1,13 +1,13 @@
 package com.example.pizzacompany._client
 
-import com.example.pizzacompany.entities.Order
+import com.example.pizzacompany._entities.Order
 
 data class Client(
     val name: String,
     val order: Order,
-    val money: Float
+    val money: Double
 ): ClientInterface {
-    override fun pay(): Float {
+    override fun pay(): Double {
         return money
     }
 
