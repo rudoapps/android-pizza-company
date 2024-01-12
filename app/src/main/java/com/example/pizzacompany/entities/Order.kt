@@ -1,4 +1,6 @@
 package com.example.pizzacompany.entities
 
-class Order {
-}
+data class Order(
+    val pizzas: List<Pizza>,
+    val total: Float
+)

@@ -1,4 +1,6 @@
 package com.example.pizzacompany.entities
 
-class Ingredient {
-}
+data class Ingredient(
+    val name: String,
+    val quantity: Int
+)
