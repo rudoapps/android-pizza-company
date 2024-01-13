@@ -1,20 +1,10 @@
 package com.example.pizzacompany.roles.clerk
 
-import com.example.pizzacompany.entities.Order
+import com.example.pizzacompany._entities.Order
+import com.example.pizzacompany._entities.OrderStatus
+import com.example.pizzacompany._entities.PaymentStatus
 
-enum class OrderStatus {
-    FINISH,
-    NOPIZZALEFT
-}
-
-enum class PaymentStatus {
-    OK,
-    NOTENOUGH,
-    MOREMONEY;
-
-    var change: Float = 0.0f
-}
 interface ClerkInterface {
     fun receive(order: Order): OrderStatus
-    fun charge(order: Order, payment: Float): PaymentStatus
+    fun chargeWithStatusAndChange(order: Order, payment: Double): Pair<PaymentStatus, Double>
 }
