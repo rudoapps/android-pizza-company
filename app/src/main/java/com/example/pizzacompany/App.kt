@@ -11,10 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.pizzacompany._client.Client
-import com.example.pizzacompany.entities.Ingredient
-import com.example.pizzacompany.entities.Order
-import com.example.pizzacompany.entities.Pizza
+import com.example.pizzacompany._warehouse.WareHouse
+import com.example.pizzacompany._entities.Order
+import com.example.pizzacompany._information.MenuPizza
+import com.example.pizzacompany._information.stocks
 import com.example.pizzacompany.roles.clerk.Clerk
+import com.example.pizzacompany.roles.cooker.Cooker
+import com.example.pizzacompany.roles.warehousemanager.WareHouseWorker
 import com.example.pizzacompany.ui.theme.PizzaCompanyTheme
 
 class App : ComponentActivity() {
@@ -27,24 +30,28 @@ class App : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    var cebolla = Ingredient(name = "cebolla", quantity = 10)
-                    var queso = Ingredient(name = "queso", quantity = 10)
-                    var tomate = Ingredient(name = "tomate", quantity = 10)
-                    var bacon = Ingredient(name = "bacon", quantity = 10)
-                    var carne = Ingredient(name = "carne", quantity = 10)
-
-                    var carbonara = Pizza(
-                        ingredients = listOf(cebolla, queso, tomate),
-                        price = 10.5f)
 
                     var clients = listOf(
-                        Client(name = "Pedro", order = Order(pizzas = listOf(carbonara)), money = 10.0f)
+                        Client(
+                            name = "Pedro",
+                            order = Order(
+                                pizzas = listOf(
+                                    MenuPizza.CARBONARA,
+                                    MenuPizza.MARGARITA,
+                                    MenuPizza.BARBACOA)),
+                            money = 10.0)
                     )
 
+                    var wareHouse = WareHouse(stocks = stocks)
+                    var wareHouseWorker = WareHouseWorker(wareHouse = wareHouse)
+                    var cooker = Cooker(wareHouseWorker = wareHouseWorker)
+                    var clerk = Clerk(cooker = cooker)
                     var restaurant = Restaurant(
                         clients = clients,
-                        clerk = Clerk()
+                        clerk = clerk
                     )
+
+                    restaurant.open()
                 }
             }
         }
