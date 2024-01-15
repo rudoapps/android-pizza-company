@@ -1,4 +1,4 @@
-[![Academy](https://img.shields.io/badge/Languages-all-orange?style=flat-square)](https://img.shields.io/badge/Languages-android-orange?style=flat-square)
+[![Academy](https://img.shields.io/badge/android-protocols-orange?style=flat-square)](https://img.shields.io/badge/android-protocols-orange?style=flat-square)
 
 ## ✍️ Acerca de
 
@@ -13,13 +13,14 @@ de vosotr@s tendréis que desempeñar un rol distinto.
 - Encargado del almacen
 
 ## 🧑‍💼 Dependient@
-Tu misión es recibir los pedidos del cliente para darselos al cocinero y gestionar cualquier problema que este pueda tener
+Tu misión es recibir los pedidos del cliente para darselos al cocinero y gestionar cualquier problema que este pueda tener.
+Además al finalizar deberá calcular el importe del pedido y cobrar al cliente.
 
 ## 🧑‍🍳‍ Cociner@
-Tu misión es cocinar todos los productos para ello necesitas ingredientes que tendrá que proporcionarte el encargado de almacen
+Tu misión es cocinar todos los productos para ello necesitas ingredientes que tendrá que proporcionarte el encargado de almacen.
 
 ## 👷 Encargad@ del almacen
-Tu misión es obtener y manejar el stock del almacen. Los ingredientes no son infinitos así que tendrás que manejar el almacen,
+Tu misión es obtener y manejar el stock del almacen. Los ingredientes no son infinitos así que tendrás que manejar el almacen.
 
 
 ![Rudo](README/rudo.png)
