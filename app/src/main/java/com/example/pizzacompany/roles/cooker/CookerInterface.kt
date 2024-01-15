@@ -6,6 +6,6 @@ import com.example.pizzacompany._entities.Pizza
 import com.example.pizzacompany._information.MenuPizza
 
 interface CookerInterface {
-    fun take(ingredients: List<Ingredient>): List<Ingredient>
+    fun takeAll(ingredients: List<Ingredient>): List<Ingredient>
     fun cook(pizza: MenuPizza): FoodStatus
 }
