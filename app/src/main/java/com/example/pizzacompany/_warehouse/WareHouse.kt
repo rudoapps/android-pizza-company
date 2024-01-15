@@ -25,12 +25,12 @@ class WareHouse(var stocks: List<Stock>): WareHouseInterface {
         throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
     }
 
-    override fun withdraw(ingredient: Ingredient, quantity: Int) {
+    override fun withdraw(ingredient: Ingredient) {
         var stock: Stock = stocks.firstOrNull { it.ingredient.name == ingredient.name }.let { it }
             ?: throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
-        if (stock.quantity - quantity < 0) {
+        if (stock.quantity - 1 < 0) {
             throw(NotEnoughException(message = "ERROR: No hay suficiente cantidad de este ingrediente"))
         }
-        stock.quantity -= quantity
+        stock.quantity -= 1
     }
 }
