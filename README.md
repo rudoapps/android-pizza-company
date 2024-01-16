@@ -1,6 +1,6 @@
 [![Academy](https://img.shields.io/badge/android-bootcamp-orange?style=flat-square)](https://img.shields.io/badge/android-bootcamp-orange?style=flat-square)
 
-# Android bootcamp - Restaurant
+# Android bootcamp - Restaurante de pizza
 ---
 ## ✍️ Acerca de
 
@@ -15,17 +15,36 @@ de vosotr@s tendréis que desempeñar un rol distinto.
 - Encargado del almacen
 
 ## Roles
-Cada rol tiene una misión única y es absolutamente necesario para poder llevar hacer funcionar el restaurante. 
+Cada rol tiene una misión única y es absolutamente necesario para poder hacer funcionar el restaurante. 
 
 ### 🧑‍💼 Dependient@
 Tu misión es recibir los pedidos del cliente para darselos al cocinero y gestionar cualquier problema que este pueda tener.
-Además al finalizar deberá calcular el importe del pedido y cobrar al cliente.
+Además al finalizar deberás calcular el importe del pedido y cobrar al cliente.
 
 ### 🧑‍🍳‍ Cociner@
 Tu misión es cocinar todos los productos para ello necesitas ingredientes que tendrá que proporcionarte el encargado de almacen.
+Para cocinar necesitas restar a los ingredientes de la pizza los ingredientes obtenidos del encargado del almacen. Recuerda avisar al dependiente si no puedes cocinar la pizza del cliente
 
 ### 👷 Encargad@ del almacen
-Tu misión es obtener y manejar el stock del almacen. Los ingredientes no son infinitos así que tendrás que manejar el almacen.
+Tu misión es obtener y manejar el stock del almacen. Los ingredientes no son infinitos recuerdalo. Tu almacen funciona así:
+
+```kotlin
+class WareHouse(var stocks: List<Stock>): WareHouseInterface {
+    override fun getIngredient(name: String): Ingredient {
+        var stock = stocks.firstOrNull { it.ingredient.name == name }
+        if (stock != null) {  return stock.ingredient }
+        throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
+    }
+    override fun withdraw(ingredient: Ingredient) {
+        var stock: Stock = stocks.firstOrNull { it.ingredient.name == ingredient.name }.let { it }
+            ?: throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
+        if (stock.quantity - 1 < 0) {
+            throw(NotEnoughException(message = "ERROR: No hay suficiente cantidad de este ingrediente"))
+        }
+        stock.quantity -= 1
+    }
+}
+```
 
 ## 🎯 Objetivos
 Para llevar a buen cabo este entrenamiento deberás de:
