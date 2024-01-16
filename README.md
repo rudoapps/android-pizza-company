@@ -1,3 +1,5 @@
+![Diagrama](README/banner.jpg)
+
 [![Academy](https://img.shields.io/badge/android-bootcamp-orange?style=flat-square)](https://img.shields.io/badge/android-bootcamp-orange?style=flat-square)
 
 # Android bootcamp - Restaurante de pizza
