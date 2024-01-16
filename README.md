@@ -14,6 +14,8 @@ de vosotr@s tendréis que desempeñar un rol distinto.
 - Cocinero
 - Encargado del almacen
 
+![Diagrama](README/diagrama.png)
+
 ## Roles
 Cada rol tiene una misión única y es absolutamente necesario para poder hacer funcionar el restaurante. 
 
