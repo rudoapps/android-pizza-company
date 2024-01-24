@@ -16,7 +16,6 @@ data class NotEnoughException(override val message: String) : Exception(message)
 }
 
 class WareHouse(var stocks: List<Stock>): WareHouseInterface {
-
     override fun getIngredient(name: String): Ingredient {
         var stock = stocks.firstOrNull { it.ingredient.name == name }
         if (stock != null) {

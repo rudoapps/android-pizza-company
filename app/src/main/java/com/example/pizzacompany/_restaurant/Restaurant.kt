@@ -1,4 +1,4 @@
-package com.example.pizzacompany
+package com.example.pizzacompany._restaurant
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

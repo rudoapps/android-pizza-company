@@ -15,6 +15,7 @@ import com.example.pizzacompany._warehouse.WareHouse
 import com.example.pizzacompany._entities.Order
 import com.example.pizzacompany._information.MenuPizza
 import com.example.pizzacompany._information.stocks
+import com.example.pizzacompany._restaurant.Restaurant
 import com.example.pizzacompany.roles.clerk.Clerk
 import com.example.pizzacompany.roles.cooker.Cooker
 import com.example.pizzacompany.roles.warehousemanager.WareHouseWorker
