@@ -58,6 +58,25 @@ interface WareHouseInterface {
     fun getIngredient(name: String): Ingredient
     fun withdraw(ingredient: Ingredient)
 }
+
+class WareHouse(var stocks: List<Stock>): WareHouseInterface {
+    override fun getIngredient(name: String): Ingredient {
+        var stock = stocks.firstOrNull { it.ingredient.name == name }
+        if (stock != null) {
+            return stock.ingredient
+        }
+        throw(NotFoundException(message = "ERROR: [$name] no se ha encontrado"))
+    }
+
+    override fun withdraw(ingredient: Ingredient) {
+        var stock: Stock = stocks.firstOrNull { it.ingredient.name == ingredient.name }.let { it }
+            ?: throw(NotFoundException(message = "ERROR: [${ingredient.name}] no se ha encontrado"))
+        if (stock.quantity - 1 < 0) {
+            throw(NotEnoughException(message = "ERROR: No hay suficiente cantidad de [${ingredient.name}]"))
+        }
+        stock.quantity -= 1
+    }
+}
 ```
 
 ## 🎯 Objetivos
