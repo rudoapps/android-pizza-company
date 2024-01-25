@@ -41,7 +41,7 @@ class App : ComponentActivity() {
                     var cooker = CookerSolution(wareHouseWorker = wareHouseWorker)
                     var clerk = ClerkSolution(cooker = cooker)
                     var restaurant = Restaurant(
-                        clients = clients,
+                        clients = emptyList(),
                         clerk = clerk
                     )
 
