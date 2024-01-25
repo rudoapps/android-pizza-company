@@ -21,14 +21,14 @@ class WareHouse(var stocks: List<Stock>): WareHouseInterface {
         if (stock != null) {
             return stock.ingredient
         }
-        throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
+        throw(NotFoundException(message = "ERROR: [$name] no se ha encontrado"))
     }
 
     override fun withdraw(ingredient: Ingredient) {
         var stock: Stock = stocks.firstOrNull { it.ingredient.name == ingredient.name }.let { it }
-            ?: throw(NotFoundException(message = "ERROR: El ingrediente no se ha encontrado"))
+            ?: throw(NotFoundException(message = "ERROR: [${ingredient.name}] no se ha encontrado"))
         if (stock.quantity - 1 < 0) {
-            throw(NotEnoughException(message = "ERROR: No hay suficiente cantidad de este ingrediente"))
+            throw(NotEnoughException(message = "ERROR: No hay suficiente cantidad de [${ingredient.name}]"))
         }
         stock.quantity -= 1
     }
