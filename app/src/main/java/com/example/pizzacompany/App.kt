@@ -14,11 +14,15 @@ import com.example.pizzacompany._client.Client
 import com.example.pizzacompany._warehouse.WareHouse
 import com.example.pizzacompany._entities.Order
 import com.example.pizzacompany._information.MenuPizza
+import com.example.pizzacompany._information.clients
 import com.example.pizzacompany._information.stocks
 import com.example.pizzacompany._restaurant.Restaurant
 import com.example.pizzacompany.roles.clerk.Clerk
+import com.example.pizzacompany.roles.clerk.ClerkSolution
 import com.example.pizzacompany.roles.cooker.Cooker
+import com.example.pizzacompany.roles.cooker.CookerSolution
 import com.example.pizzacompany.roles.warehousemanager.WareHouseWorker
+import com.example.pizzacompany.roles.warehousemanager.WareHouseWorkerSolution
 import com.example.pizzacompany.ui.theme.PizzaCompanyTheme
 
 class App : ComponentActivity() {
@@ -32,21 +36,10 @@ class App : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
 
-                    var clients = listOf(
-                        Client(
-                            name = "Pedro",
-                            order = Order(
-                                pizzas = listOf(
-                                    MenuPizza.CARBONARA,
-                                    MenuPizza.MARGARITA,
-                                    MenuPizza.BARBACOA)),
-                            money = 10.0)
-                    )
-
                     var wareHouse = WareHouse(stocks = stocks)
-                    var wareHouseWorker = WareHouseWorker(wareHouse = wareHouse)
-                    var cooker = Cooker(wareHouseWorker = wareHouseWorker)
-                    var clerk = Clerk(cooker = cooker)
+                    var wareHouseWorker = WareHouseWorkerSolution(wareHouse = wareHouse)
+                    var cooker = CookerSolution(wareHouseWorker = wareHouseWorker)
+                    var clerk = ClerkSolution(cooker = cooker)
                     var restaurant = Restaurant(
                         clients = clients,
                         clerk = clerk
