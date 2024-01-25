@@ -7,7 +7,6 @@ import com.example.pizzacompany.roles.warehousemanager.WareHouseWorkerInterface
 
 class Cooker(val wareHouseWorker: WareHouseWorkerInterface): CookerInterface {
     private fun takeAll(ingredients: List<Ingredient>): List<Ingredient> {
-        // Úsalo si crees que lo necesitas. No es obligatorio
         return emptyList()
     }
 
